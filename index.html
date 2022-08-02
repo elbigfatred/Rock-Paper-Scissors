@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<text class="text">
+    Yeah, so... I'm not good enough at the whole "being good at coding" 
+    thing yet to actually implement Rock, Paper, Scissors nicely yet in a 
+    nice, user-friendly way. You're gonna have to use "inspect element" 
+    and play using the console. For now. Congrats if you won!
+</text>
+    <script type="text/javascript">
+    let computerChoice = "";
+    let playerWinCounter = 0;
+    let computerWinCounter = 0;
+
+    function getComputerChoice(computerChoice) {
+            var computerRandomizer = Math.floor(Math.random() * 3);
+                 if (computerRandomizer == 2) {
+                return "Rock";
+                 }
+                 else if (computerRandomizer == 1) {
+                return "Paper";
+                    }
+                    else if (computerRandomizer == 0) {
+                return "Scissors";
+                    }
+                 else {
+                console.log ("?");
+                 }
+        }
+    function winCase(){
+            playerWinCounter ++;
+            console.log ("You win this round!");
+        }
+    function loseCase(){
+            computerWinCounter ++;
+            console.log ("The computer wins this round.");
+        }
+    function tieCase(){
+            console.log ("It's a tie!");
+        }
+    function game() {
+    let playerSelection = prompt(`Open the console via "Inspect Element". Please input rock, paper, or scissors!`);
+        playerSelection = playerSelection.toUpperCase();
+    if (playerSelection === "ROCK" || "PAPER" || "SCISSORS") {
+        computerChoice = getComputerChoice();
+        computerChoice = computerChoice.toUpperCase();
+        console.log("The computer plays " + computerChoice);
+        console.log("You play " + playerSelection);
+        if (playerSelection == computerChoice) {
+            return tieCase();
+        }
+        else if (playerSelection == "ROCK" && computerChoice == "PAPER") {
+            return loseCase();
+        }
+        else if (playerSelection == "PAPER" && computerChoice == "SCISSORS"){
+            return loseCase();
+        }
+        else if (playerSelection == "SCISSORS" && computerChoice == "ROCK") {
+            return loseCase();
+        }
+        else {
+            return winCase();
+        }
+    }
+    else {
+        return "You did not input a proper play!"
+    }
+        }
+   
+    for (let i = 0; i < 5; i ++){
+    game()
+    console.log(`The computer currently has ${computerWinCounter} win(s).`);
+    console.log( `You currently have ${playerWinCounter} win(s).`);
+    if (computerWinCounter > playerWinCounter){
+        console.log("The computer is leading!");
+    } 
+    else if (playerWinCounter > computerWinCounter){
+        console.log( "You're leading!");
+    }
+    else {
+        console.log ("It's all tied up!");
+    }
+    }
+    
+   </script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+* {
+    background-color:blanchedalmond;
+}
+.text {
+    display: flexbox;
+    align-items: center;
+    justify-content: center;
+    width: 300px;
+    font-size: large;
+    color: cadetblue;
+}
